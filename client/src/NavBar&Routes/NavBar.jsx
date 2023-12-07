@@ -9,9 +9,7 @@ export default function NavBar() {
         </LogoWrapper>
         <LinksWrapper>
             <Link className="link" to={"/"}>Home</Link>
-            <Link className="link" to={"/Categorize"}>Categorize</Link>
-            <Link className="link" to={"/Cloze"}>Cloze</Link>
-            <Link className="link" to={"/Comprehension"}>Comprehension</Link>
+            <Link className="link" to={"/createform"}>CreateFrom</Link>
         </LinksWrapper>
     </Container>
   )
