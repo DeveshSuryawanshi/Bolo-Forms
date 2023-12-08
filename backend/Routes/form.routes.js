@@ -4,8 +4,10 @@ const {FormModel} = require("../Models/form.model");
 const formRouter = express.Router();
 
 formRouter.post("/create", async(req, res) =>{
+    // console.log(req.body);
     try {
         const form = new FormModel(req.body);
+        // console.log(form);
         await form.save();
         res.status(200).json({msg: "New form is Created"});
     } catch (error) {
