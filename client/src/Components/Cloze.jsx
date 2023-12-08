@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { GrUnderline } from "react-icons/gr";
 import { IoMdClose } from "react-icons/io";
 import { IoMdSave } from "react-icons/io";
+import { FaEdit } from "react-icons/fa";
 
-export default function Cloze() {
+export default function Cloze({getQuestionData}) {
 
   const [selectedWord, setSelectedWord] = useState('');
   const [underlinedWords, setUnderlinedWords] = useState([]);
@@ -44,12 +45,20 @@ export default function Cloze() {
 
   const handleSave = () =>{
     setSave((prev) => !prev);
+    let newData = {
+      description : peraInput,
+      questiontype: "Cloze",
+      breakpoints : underlinedWords
+    }
+    getQuestionData(newData)
   }
 
   return (
     <Container>
       <SaveButoonContainer>
-        <IoMdSave size={30} onClick={handleSave}/>
+        {
+          save? <FaEdit size={30} onClick={handleSave}/> : <IoMdSave size={30} onClick={handleSave}/>
+        }
       </SaveButoonContainer>
       <PeraWrapper>
         <Heading>Sentence</Heading>

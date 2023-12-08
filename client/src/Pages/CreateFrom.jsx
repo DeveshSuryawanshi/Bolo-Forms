@@ -13,7 +13,7 @@ export default function CreateFrom() {
   const Navto = useNavigate()
 
   const handleAddNewQuestion = () => {
-    setForms([...forms, { id: forms.length + 1, data: {} }]);
+    setForms([...forms, {}]);
   };
 
   const getIdFromQuestion = (id) =>{
@@ -21,13 +21,14 @@ export default function CreateFrom() {
   }
 
   const getFromData = (data,i) =>{
-    forms[i].data = data; 
+    forms[i] = data; 
   }
 
-  const handleGenrateForm = () =>{
 
-    axios.post("https://bolo-forms-sn9f.onrender.com/form/create",{formdata: forms})
-     .then((res) =>{
+  const handleGenrateForm = () =>{
+    axios.post("http://localhost:8080/form/create",{formData: forms})
+     .then((res) =>{ 
+      console.log(res);
       toast.success("Generated Successfully Redirecting...",{
         position: "top-center",
         autoClose: 3000,
@@ -43,6 +44,7 @@ export default function CreateFrom() {
       },4000)
      })
      .catch((error) =>{
+      console.log(error);
       toast.error("Something went wronge...",{
         position: "top-center",
         autoClose: 3000,

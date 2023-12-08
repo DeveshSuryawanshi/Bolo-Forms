@@ -58,9 +58,9 @@ export default function Question({ question, getIdFromQuestion, getFromData}) {
       {category === "Categorize" ? (
         <Categorize getQuestionData={getQuestionData} id={question}/>
       ) : category === "Cloze" ? (
-        <Cloze />
+        <Cloze getQuestionData={getQuestionData}/>
       ) : category === "Comprehension" ? (
-        <Comprehension />
+        <Comprehension getQuestionData={getQuestionData}/>
       ) : (
         <SelectHeading>Select Category<BiSolidUpArrowSquare /></SelectHeading>
       )}
